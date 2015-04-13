@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ include file="header.jsp"%>
+<%@ include file="../common/header.jsp"%>
+<body onLoad="createCode();">
 <div class="alert alert-info alert-dismissable">
    <button type="button" class="close" data-dismiss="alert" 
       aria-hidden="true">
@@ -84,4 +85,4 @@
     </div>
   </div>
 </div>
-<%@ include file="footer.jsp"%>
+<%@ include file="../common/footer.jsp"%>

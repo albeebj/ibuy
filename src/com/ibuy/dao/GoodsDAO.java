@@ -36,6 +36,9 @@ public class GoodsDAO {
 	public static final String STORAGE = "storage";
 	public static final String DESCRIPTION = "description";
 	public static final String IMG_ADDRESS = "imgAddress";
+	public static final String SOLD_AMOUNT = "soldAmount";
+	public static final String IS_RECOMMAND = "isRecommand";
+	public static final String GENDER = "gender";
 	public static final String STATUS = "status";
 
 	private SessionFactory sessionFactory;
@@ -134,6 +137,18 @@ public class GoodsDAO {
 
 	public List findByImgAddress(Object imgAddress) {
 		return findByProperty(IMG_ADDRESS, imgAddress);
+	}
+
+	public List findBySoldAmount(Object soldAmount) {
+		return findByProperty(SOLD_AMOUNT, soldAmount);
+	}
+
+	public List findByIsRecommand(Object isRecommand) {
+		return findByProperty(IS_RECOMMAND, isRecommand);
+	}
+
+	public List findByGender(Object gender) {
+		return findByProperty(GENDER, gender);
 	}
 
 	public List findByStatus(Object status) {

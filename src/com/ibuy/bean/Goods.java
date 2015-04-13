@@ -16,18 +16,22 @@ public class Goods extends AbstractGoods implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Goods(Category category, String name, Integer price,
-			Integer storage, Short status, Timestamp createdTime,
+			Integer storage, Integer soldAmount, Short isRecommand,
+			Short gender, Short status, Timestamp createdTime,
 			Timestamp updatedTime) {
-		super(category, name, price, storage, status, createdTime, updatedTime);
+		super(category, name, price, storage, soldAmount, isRecommand, gender,
+				status, createdTime, updatedTime);
 	}
 
 	/** full constructor */
 	public Goods(Category category, String name, Integer price,
 			Integer storage, String description, String imgAddress,
-			Short status, Timestamp createdTime, Timestamp updatedTime,
-			Set cartGoodses, Set orderGoodses) {
-		super(category, name, price, storage, description, imgAddress, status,
-				createdTime, updatedTime, cartGoodses, orderGoodses);
+			Integer soldAmount, Short isRecommand, Short gender, Short status,
+			Timestamp createdTime, Timestamp updatedTime, Set cartGoodses,
+			Set orderGoodses) {
+		super(category, name, price, storage, description, imgAddress,
+				soldAmount, isRecommand, gender, status, createdTime,
+				updatedTime, cartGoodses, orderGoodses);
 	}
 
 }

@@ -7,18 +7,20 @@ define(["jquery"], function($) {
 		$.ajax({          
 		    type:'post',
 		    dataType:"json",
-		    url:'login',
+		    url:'verify_login',
 		    data:'username=' + username.val() + "&password=" + password.val(), 
 		    error:function(){     
 		    	console.log('error');     
 		    },     
 		    success:function(data){
 		    	console.log(data);
-		    	if(data == true){
+		    	if(data == "success"){
 		    		location.href = "index.jsp";
 		    	}
-		    	else{
+		    	else if(data == "failer"){
 		    		alert("wrong!");
+		    	}else {
+		    		alert("unvarified!");
 		    	}
 		    }  
 		});  

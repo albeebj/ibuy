@@ -7,25 +7,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibuy.bean.User;
 import com.ibuy.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport{
+public class LoginAction extends ActionSupport implements SessionAware{
 	private String username;
 	private String password;
-	private boolean result;
+	private String result;
 	private String email;
 	private short status;
 	private Timestamp created_time;
 	private Timestamp updated_time;
 	private LoginService loginService;
+	private Map session;
 
 	
 	public LoginService getLoginService() {
@@ -37,14 +40,14 @@ public class LoginAction extends ActionSupport{
 	public String getUsername() {
 		return username;
 	}
-	public boolean isResult() {
-		return result;
-	}
-	public void setResult(boolean result) {
-		this.result = result;
-	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
 	}
 	public String getPassword() {
 		return password;
@@ -77,20 +80,29 @@ public class LoginAction extends ActionSupport{
 		this.updated_time = updated_time;
 	}
 	
-	public String execute() throws Exception {  
+	public String execute() throws Exception {
+	     return "input";
+   }
+	
+	public String login() throws Exception {  
 	     //System.out.println("Message: TestAction!");  
 	     //return "success";
 		 
 		 User user = new User();
 		 user.setUsername(username);
 		 user.setPassword(password);
-		 this.result = loginService.isValid(user);
+		 result = loginService.isValid(user);
+		 if(result == "success"){
+			 this.session.put("user", user.getUsername());
+		 }
 		 
-	     if(this.result){
-	    	 return "success";
-	     }else{
-	    	 return "failer";
-	     }
-    }  
+	     return "result";
+    }
+	
+	@Override
+	public void setSession(Map session) {
+		// TODO Auto-generated method stub
+		this.session = session; 
+	}  
 }
 

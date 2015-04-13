@@ -57,8 +57,23 @@ div {
     <div class="navbar-inner navbar-fix-top">
       <div class="container">
         <ul class="nav">
-          <li><a href="login.jsp"><i class="icon-user"></i> 请登录/注册</a></li>
+          <li>
+          	<%
+          		String username = session.getAttribute("user").toString();
+				if(username != null ){
+					out.print("<a href='login'><i class='icon-user'></i> " + username + ",欢迎您</a>");
+				}
+				else{
+					out.print("<a href='login'><i class='icon-user'></i> 请登录/注册</a>");
+				}
+			%>
+          	
+          </li>
         </ul>
+        <% if(username != null){
+        	out.print("<ul class='nav'><li><a href='logout'> 退出</a></li></ul>");
+        } %>
+        
         <ul class="nav">
           <li><a href="index.jsp"><i class="icon-home"></i> 首页</a></li>
         </ul>

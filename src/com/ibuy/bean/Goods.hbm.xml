@@ -28,6 +28,15 @@
         <property name="imgAddress" type="java.lang.String">
             <column name="img_address" length="45" />
         </property>
+        <property name="soldAmount" type="java.lang.Integer">
+            <column name="sold_amount" not-null="true" />
+        </property>
+        <property name="isRecommand" type="java.lang.Short">
+            <column name="is_recommand" not-null="true" />
+        </property>
+        <property name="gender" type="java.lang.Short">
+            <column name="gender" not-null="true" />
+        </property>
         <property name="status" type="java.lang.Short">
             <column name="status" not-null="true" />
         </property>

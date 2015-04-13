@@ -20,6 +20,9 @@ public abstract class AbstractGoods implements java.io.Serializable {
 	private Integer storage;
 	private String description;
 	private String imgAddress;
+	private Integer soldAmount;
+	private Short isRecommand;
+	private Short gender;
 	private Short status;
 	private Timestamp createdTime;
 	private Timestamp updatedTime;
@@ -34,12 +37,16 @@ public abstract class AbstractGoods implements java.io.Serializable {
 
 	/** minimal constructor */
 	public AbstractGoods(Category category, String name, Integer price,
-			Integer storage, Short status, Timestamp createdTime,
+			Integer storage, Integer soldAmount, Short isRecommand,
+			Short gender, Short status, Timestamp createdTime,
 			Timestamp updatedTime) {
 		this.category = category;
 		this.name = name;
 		this.price = price;
 		this.storage = storage;
+		this.soldAmount = soldAmount;
+		this.isRecommand = isRecommand;
+		this.gender = gender;
 		this.status = status;
 		this.createdTime = createdTime;
 		this.updatedTime = updatedTime;
@@ -48,14 +55,18 @@ public abstract class AbstractGoods implements java.io.Serializable {
 	/** full constructor */
 	public AbstractGoods(Category category, String name, Integer price,
 			Integer storage, String description, String imgAddress,
-			Short status, Timestamp createdTime, Timestamp updatedTime,
-			Set cartGoodses, Set orderGoodses) {
+			Integer soldAmount, Short isRecommand, Short gender, Short status,
+			Timestamp createdTime, Timestamp updatedTime, Set cartGoodses,
+			Set orderGoodses) {
 		this.category = category;
 		this.name = name;
 		this.price = price;
 		this.storage = storage;
 		this.description = description;
 		this.imgAddress = imgAddress;
+		this.soldAmount = soldAmount;
+		this.isRecommand = isRecommand;
+		this.gender = gender;
 		this.status = status;
 		this.createdTime = createdTime;
 		this.updatedTime = updatedTime;
@@ -119,6 +130,30 @@ public abstract class AbstractGoods implements java.io.Serializable {
 
 	public void setImgAddress(String imgAddress) {
 		this.imgAddress = imgAddress;
+	}
+
+	public Integer getSoldAmount() {
+		return this.soldAmount;
+	}
+
+	public void setSoldAmount(Integer soldAmount) {
+		this.soldAmount = soldAmount;
+	}
+
+	public Short getIsRecommand() {
+		return this.isRecommand;
+	}
+
+	public void setIsRecommand(Short isRecommand) {
+		this.isRecommand = isRecommand;
+	}
+
+	public Short getGender() {
+		return this.gender;
+	}
+
+	public void setGender(Short gender) {
+		this.gender = gender;
 	}
 
 	public Short getStatus() {
